@@ -29,9 +29,36 @@ curl -u 'TUTU-Jack:token' https://api.github.com/user/repos -d '{"name":"'Reposi
 
 ### （二）创建 Github 本地仓库
 
-**ssh密钥配置**
+**SSH密钥配置**
+
+git 连接github时可以使用 HTTP 或者 SSH，使用SSH更安全且方便
+
+（1）主机本地生成SSH密钥
+```shell
+ssh-keygen -t rsa -C "your_email@example.com"
+```
++ 公钥 - id_rsa.pub
+
++ 私钥 - id_rsa
+
+需要在其它服务器中远程连接本地时，使用公钥，私钥自己保存
+
+（2）打开公钥所在文件，复制公钥
+
+（3）登录 github 设置密钥
+
+![图 4](images/40b69e7c7b9f0c11c3d353976bbad704debba1ebbc5776861f900dc06751b4be.png)  
 
 
+![图 5](images/5e24dee2678befd269bec4997e8addb8d08562fa1ec1741bc5131c78db66bfb0.png)  
+
+将复制的公钥复制到 Key 中，创建连接
+
+（4）查看是否连接成功
+```shell
+ssh -T git@github.com
+```
+---
 **1.本地配置**
 ```shell
 git config --global user.name "user name"
@@ -69,4 +96,11 @@ git commit -m "修改描述"
 git status
 
 # 若文件有修改，则需将修改后的文件重新上传
+
 ```
+**4.将本地仓库文件上传到远程仓库**
+```shell
+# 将本地仓库上传到远程仓库的某个分支
+git push <远程仓库地址别名> master
+```
+---
