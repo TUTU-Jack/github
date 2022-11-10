@@ -140,3 +140,8 @@ git push <远程仓库地址别名> <新建分支名>
 git push <远程仓库地址别名> --delete <分支名>
 ```
 ---
+**github 上传超过 100M 大文件的方法**
+
+https://blog.csdn.net/WANTAWAY314/article/details/115487830
+
+https://www.cnblogs.com/chenlove/p/9778349.html
